@@ -1,0 +1,26 @@
+name: JSON Parser
+
+on:
+  push:
+    paths:
+      - 'specs/*.json'
+
+jobs:
+  parse-json:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Parse JSON and trigger cluster definition
+      run: |
+        python src/main.py
+      env:
+        TEMPLATE_REPO_URL: ${{ secrets.TEMPLATE_REPO_URL }}
+        CLUSTER_DEF_REPO_URL: ${{ secrets.CLUSTER_DEF_REPO_URL }}
