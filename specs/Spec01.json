@@ -1,0 +1,11 @@
+{
+    "clusterName": "test-cluster",
+    "env": "dev",
+    "workerNodeCount": 3,
+    "controlPlaneCount": 1,
+    "region": "us-west-1",
+    "nodeType": "t2.medium",
+    "kubernetesVersion": "1.18",
+    "networkPolicy": "calico",
+    "storageClass": "gp2"
+}
